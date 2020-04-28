@@ -5,11 +5,12 @@ class signup{
     protected $_mdp;
     protected $_email;
 
+
+
     public function __construct($_pseudo,$_mdp,$_email){
         $this->_pseudo = $_pseudo;
         $this->_mdp = $_mdp;
         $this->_email = $_email;
-
     }
 
     //getters
@@ -25,6 +26,7 @@ class signup{
         return $this->_email;
     }
 
+
   
     //setters
     public function setPseudo($Pseudo){
@@ -37,8 +39,7 @@ class signup{
     }
 
     public function setEmail($Email){
-        $this->_email = $Email;
-       
+        $this->_email = $Email;       
     }
 
 
@@ -54,10 +55,39 @@ class signup{
                     'pseudo' => $this->_pseudo,
                     'mdp' => $this->_mdp,
                     'email'=>$this->_email
-        ));
+                       ));
 
         header("location:success.php");
    }
 
+ 
+   public function mailConfirmation(){
+    $token = $this->_token;
+    $email = $this->_email;
+    $pseudo = $this->_pseudo;
+    
+    $destinataire = $email;
+    $sujet = "Activer votre compte" ;
+    $entete = "From: site poo" ;
+    $message = 'Bienvenue sur VotreSite,
+ 
+Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
+ou copier/coller dans votre navigateur Internet.
+ 
+http://karan.simplon-charleville.fr/poo%20php/validation.php?log='.urlencode($pseudo).'&token='.urlencode($token).'
+ 
+ 
+---------------
+Ceci est un mail automatique, Merci de ne pas y répondre.';
+ 
+ 
+mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail
 
 }
+
+
+
+}
+
+
+   

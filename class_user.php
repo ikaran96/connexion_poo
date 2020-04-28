@@ -3,12 +3,11 @@
 class user{
     protected $_pseudo;
     protected $_mdp;
-    protected $_email;
+
 
     public function __construct($_pseudo,$_mdp){
         $this->_pseudo = $_pseudo;
         $this->_mdp = $_mdp;
-
     }
 
     //getters
@@ -30,8 +29,6 @@ class user{
         $this->_mdp = $Mdp;
        
     }
-
-
     
 
     public function connexion($bdd){
@@ -53,10 +50,10 @@ class user{
         }
         else
         {
-        echo "Mauvais pseudo ou mdp <br>";
-        echo "<a href='index.php'>Retour</a>";
+            header("location:index.php");
         }
     }
+
 
 
 }

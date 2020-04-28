@@ -20,4 +20,16 @@ $user1= new user ($pseudo, $mdp);
 $user1->connexion($bdd);
 
 
+//inscription
+
+require_once('class_signup.php');
+
+$pseudo = !empty($_POST['pseudo']) ? $_POST['pseudo'] : NULL;
+$mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL;
+$email = !empty($_POST['email']) ? $_POST['email'] : NULL;
+
+$user1= new signup ($pseudo, $mdp, $email);
+$user1-> inscription($bdd);
+
+
 

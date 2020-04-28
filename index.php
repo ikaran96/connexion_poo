@@ -21,7 +21,10 @@ session_start();
         <input name="mdp" type="password" placeholder="Mdp" required><br>
         <button type="submit">Se connecter</button>
     </form>
-    </div>
+    <a href="inscription.php"> S'inscrire </a>
+</div>
+
+    
 
 
 
